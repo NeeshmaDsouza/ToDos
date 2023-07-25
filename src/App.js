@@ -9,13 +9,7 @@ import './App.css'
 function App() {
 
   const [task, setTask] = useState("");
-  const [toDoList, setToDoList] = useState([
-    {
-      task: "newTask",
-      state: 0,
-      id: v4()
-    }
-  ]);
+  const [toDoList, setToDoList] = useState([]);
 
   const addTaskToList = (newTask) => {
     let newTaskObj = {
@@ -24,8 +18,8 @@ function App() {
       id: v4()
     }
     
-    // toDoList.push(newTaskObj);
-    setToDoList([...toDoList, newTaskObj]);
+    toDoList.push(newTaskObj);
+    setToDoList(toDoList);
     setTask("");
   }
 
@@ -41,49 +35,14 @@ function App() {
   return (
     <div className='mainContainer'>
       <h1> Things to Do </h1>
-      <div className='formContainer'>
-            <form>
-                <label>Enter new task 
-                    <br/>
-                    <input
-                        type='text'
-                        value={task}
-                        onChange={(e) => {
-                          setTask(e.target.value)
-                        }}
-                    />
-                </label>
-                <br/><br/>
-                <button onClick={() => {
-                    addTaskToList(task);
-                }}>ADD</button>
-            </form>
-        </div>
-        <div className="listContainer">
-                {
-                    toDoList.map((todo) => {
-                        return(
-                            <i key={todo.id}>
-                                <input type="checkbox" checked={todo.state} onChange={() => {
-                                    changeCheckState(todo.id)
-                                }}>
-                                </input>  
-                                {todo.task}
-                            </i>
-                        )
-                    }
-                   )
-                }
-        </div>
+      <Form task={task} setTask={setTask} addTaskToList={addTaskToList}/>
+      <List toDoList={toDoList} setToDoList={setToDoList} changeCheckState={changeCheckState}/> 
     </div>
   );
 }
 
 export default App;
 
-
-
 /* 
-<Form task={task} setTask={setTask} addTaskToList={addTaskToList}/>
-<List toDoList={toDoList} setToDoList={setToDoList} changeCheckState={changeCheckState}/> 
+
 */

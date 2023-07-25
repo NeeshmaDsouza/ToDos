@@ -17,7 +17,8 @@ export function Form({task, setTask, addTaskToList}) {
                     />
                 </label>
                 <br/><br/>
-                <button onClick={() => {
+                <button onClick={(e) => {
+                    e.preventDefault();
                     addTaskToList(task);
                 }}>ADD</button>
             </form>

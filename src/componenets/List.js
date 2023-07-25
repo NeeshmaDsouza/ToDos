@@ -14,6 +14,7 @@ export function List({toDoList, setToDoList, changeCheckState}) {
                                 }}>
                                 </input>  
                                 {todo.task}
+                                <br/>
                             </i>
                         )
                     }
