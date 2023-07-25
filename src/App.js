@@ -33,10 +33,13 @@ function App() {
   }
 
   return (
-    <div className='mainContainer'>
-      <h1> Things to Do </h1>
-      <Form task={task} setTask={setTask} addTaskToList={addTaskToList}/>
-      <List toDoList={toDoList} setToDoList={setToDoList} changeCheckState={changeCheckState}/> 
+    <div>
+      <marquee> Plan your to do </marquee>
+      <div className='mainContainer'>
+        <h1> Things to Do </h1>
+        <Form task={task} setTask={setTask} addTaskToList={addTaskToList}/>
+        <List toDoList={toDoList} setToDoList={setToDoList} changeCheckState={changeCheckState}/> 
+      </div>
     </div>
   );
 }
